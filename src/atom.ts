@@ -1,34 +1,37 @@
 
 
 
-export type Molecule<A> = {
+export type Atom<A> = {
   observe: (f: (next: A) => void) => () => void,
   // onChange: (f: (prev: A, next: A) => void) => () => void,
   // modify: (f: (a:A) => A) => void
   getValue: () => A
 }
 
-export const makeMolecule = <A>(initial: A): [(f: (a:A) => A) => void, Molecule<A>] => {
+export const makeAtom = <A>(initial: A): [(f: (a:A) => A) => () => A, Atom<A>] => {
   let state = initial
-  let observers: Record<symbol, (a: A) => void> = {}
-  return [m => {
+  let observers = new Map<symbol, (a: A) => void>()
+  return [m =>  () => {
     state = m(state)
-    Object.keys(observers).forEach(key => {
-      observers[key](state)
+    observers.forEach(f => {
+      f(state)
     })
+    return state
   }, {
     observe: fa => {
-      let id = Symbol();
-      observers[id] = fa;
+      console.log('adding observer')
+      const id: unique symbol = Symbol();
+      observers.set(id, fa);
       return () => {
-        delete observers[id]
+        console.log('deleting observer')
+        observers.delete(id)
       }
     },
     getValue: () => state
   }]
 }
 
-export const map = <A, B>(ab: (a: A) => B) => (fa: Molecule<A>): Molecule<B> => {
+export const map = <A, B>(ab: (a: A) => B) => (fa: Atom<A>): Atom<B> => {
   return {
     observe: (fb) => {
       return fa.observe(a => fb(ab(a)))
@@ -37,7 +40,7 @@ export const map = <A, B>(ab: (a: A) => B) => (fa: Molecule<A>): Molecule<B> => 
   }
 }
 
-export const ap = <A, B>(fab: Molecule<(a: A) => B>) => (fa: Molecule<A>): Molecule<B> => {
+export const ap = <A, B>(fab: Atom<(a: A) => B>) => (fa: Atom<A>): Atom<B> => {
   return {
     observe: (fb) => {
       const unobserveFa = fa.observe(a => fb(fab.getValue()(a)))

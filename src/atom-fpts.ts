@@ -1,6 +1,6 @@
 import * as F from 'fp-ts/Functor'
 import * as Ap from 'fp-ts/Applicative'
-import { makeMolecule, map, ap, Molecule } from './molecule';
+import { makeAtom, map, ap, Atom } from './atom';
 import { snd } from 'fp-ts/lib/ReadonlyTuple';
 
 
@@ -9,7 +9,7 @@ export type URI = typeof URI;
 
 declare module "fp-ts/HKT" {
   interface URItoKind<A> {
-    Molecule: Molecule<A>;
+    Molecule: Atom<A>;
   }
 }
 
@@ -20,6 +20,7 @@ export const Functor: F.Functor1<"Molecule"> = {
 
 export const Applicative: Ap.Applicative1<"Molecule"> = {
   ...Functor,
-  of: a => snd(makeMolecule(a)),
+  of: a => snd(makeAtom(a)),
   ap: (fab, fa) => ap(fab)(fa)
 }
+
