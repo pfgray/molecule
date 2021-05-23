@@ -5,8 +5,7 @@ import { pipe, tuple } from 'fp-ts/lib/function';
 import * as RTE from 'fp-ts/ReaderTaskEither'
 import * as O from 'fp-ts/Option'
 import { ADT, match } from 'ts-adt';
-import { Atom, makeAtom } from './atom'
-import { state } from 'fp-ts/lib/State';
+import { Atom, makeAtom } from '@pfgray/molecule'
 
 export type AsyncState<E, A> = ADT<{
   pending: {},

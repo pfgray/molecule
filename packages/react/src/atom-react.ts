@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Atom } from './atom'
+import { Atom } from '@pfgray/molecule'
 import * as Eq from 'fp-ts/lib/Eq'
 
 export const useAtom = <A>(a: Atom<A>, eq: Eq.Eq<A>) => {

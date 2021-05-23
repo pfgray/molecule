@@ -67,3 +67,7 @@ const CountClicker = () => {
 ```
 
 When the `modifyCount` function is invoked, the state in `CountDisplay` will automatically update with the new value.
+
+## Composition
+
+`Atom`s can be mapped to different values. When using  

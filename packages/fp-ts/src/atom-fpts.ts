@@ -1,8 +1,7 @@
 import * as F from 'fp-ts/Functor'
 import * as Ap from 'fp-ts/Applicative'
-import { makeAtom, map, ap, Atom } from './atom';
+import { makeAtom, map, ap, Atom } from '@pfgray/molecule';
 import { snd } from 'fp-ts/lib/ReadonlyTuple';
-
 
 export const URI = "Molecule";
 export type URI = typeof URI;

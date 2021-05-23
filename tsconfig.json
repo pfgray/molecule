@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -16,5 +15,5 @@
     "stripInternal": true,
     "skipLibCheck": true
   },
-  "include": ["src/*"]
+  "include": []
 }

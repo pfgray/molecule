@@ -1,0 +1,14 @@
+{
+  "name": "@pfgray/molecule",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn generate-barrel; tsc; yarn clean-barrel",
+    "generate-barrel": "barrelsby -d src -D -S",
+    "clean-barrel": "rm src/index.ts" 
+  },
+  "devDependencies": {
+    "barrelsby": "^2.2.0"
+  }
+}

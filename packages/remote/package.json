@@ -1,0 +1,15 @@
+{
+  "name": "@pfgray/molecule-remote",
+  "version": "1.0.0",
+  "description": "\\",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn generate-barrel; tsc; yarn clean-barrel",
+    "generate-barrel": "barrelsby -d src -D -S",
+    "clean-barrel": "rm src/index.ts" 
+  },
+  "devDependencies": {
+    "barrelsby": "^2.2.0"
+  }
+}

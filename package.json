@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/**",
+    "examples/**"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@types/react": "^17.0.4",
