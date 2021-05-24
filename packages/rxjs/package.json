@@ -1,6 +1,7 @@
 {
-  "name": "@pfgray/molecule",
+  "name": "@pfgray/molecule-rxjs",
   "version": "1.0.0",
+  "description": "\\",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -12,6 +13,8 @@
     "barrelsby": "^2.2.0"
   },
   "dependencies": {
+    "@pfgray/molecule": "1.0.0",
+    "rxjs": "^7.1.0",
     "typescript": "^4.2.4"
   }
 }

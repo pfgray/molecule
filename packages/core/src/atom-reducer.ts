@@ -7,10 +7,10 @@ type AtomReducerResult<A, S> = [
   Dispatch<A, S>
 ]
 
-export const makeAtomReducer = <S>(initialState: S) => <A>(reducer: (a: A, s: S) => S): AtomReducerResult<A, S> => {
+export const makeAtomReducer = <S>(initialState: S) => <A>(reducer: (s: S, a: A) => S): AtomReducerResult<A, S> => {
   const [modify, atom] = makeAtom(initialState)
   const dispatch = (a: A) => 
-    modify(s => reducer(a, s))
+    modify(s => reducer(s, a))
   return [
     atom,
     dispatch
