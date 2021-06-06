@@ -1,11 +1,14 @@
 {
   "name": "molecule",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "workspaces": [
     "packages/**",
     "examples/**"
-  ]
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }

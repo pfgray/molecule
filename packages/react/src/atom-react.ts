@@ -6,7 +6,7 @@ export const useAtom = <A>(a: Atom<A>, eq: Eq.Eq<A>) => {
   const [state, setState] = React.useState(a.getValue())
   React.useEffect(() => {
     return a.observe(nextState => {
-      console.log('something changed...', state, nextState);
+      console.log('something else changed.......', state, nextState);
       if(!eq.equals(state, nextState)) {
         console.log('Setting state!', state, nextState)
         setState(nextState)

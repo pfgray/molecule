@@ -19,7 +19,7 @@ export const makeAtom = <A>(initial: A): [(f: (a:A) => A) => () => A, Atom<A>] =
     return state
   }, {
     observe: fa => {
-      console.log('adding observer')
+      console.log('adding observer.........')
       const id: unique symbol = Symbol();
       observers.set(id, fa);
       return () => {

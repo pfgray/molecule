@@ -1,11 +1,12 @@
 {
   "name": "@pfgray/molecule-rxjs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "\\",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn generate-barrel; tsc; yarn clean-barrel",
+    "build": "tsc",
+    "prepublish": "yarn generate-barrel; yarn build;",
     "generate-barrel": "barrelsby -d src -D -S",
     "clean-barrel": "rm src/index.ts"
   },
