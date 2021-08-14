@@ -16,6 +16,6 @@
   "dependencies": {
     "fp-ts": "^2.10.5",
     "typescript": "^4.2.4",
-    "@pfgray/molecule": "1.0.0"
+    "@pfgray/molecule": "0.1.0"
   }
 }
